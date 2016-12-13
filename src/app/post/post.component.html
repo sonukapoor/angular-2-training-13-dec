@@ -1,0 +1,34 @@
+<section class="mw7 center">
+  <h2 class="athelas ph3 ph0-l">My Blog</h2>
+
+  <article class="pv4 bt bb b--black-10 ph3 ph0-l">
+
+    <div>
+      <app-post-title>
+        {{ title }}
+      </app-post-title>
+
+      <p class="f5 f4-l lh-copy athelas">
+        {{ post.body }}
+      </p>
+    </div>
+
+    <p class="f6 lh-copy gray mv0 flex">
+      <span class="flex-auto">
+        By <span class="ttu">
+          {{ post.author }}
+        </span>
+      </span>
+      <app-like class="f3 green"
+        [count]="count"
+        (countChange)="count = $event">
+      </app-like>
+    </p>
+
+    <app-post-date
+      [date]="post.date">
+    </app-post-date>
+
+  </article>
+
+</section>
