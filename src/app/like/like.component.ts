@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class LikeComponent implements OnInit {
 
   @Input() count: number;
-  @Output() countChange: EventEmitter<number> = new EventEmitter();
+  @Output() countChange = new EventEmitter<number>();
 
   constructor() { }
 

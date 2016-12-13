@@ -9,6 +9,9 @@ import { PostComponent } from './post/post.component';
 import { LikeComponent } from './like/like.component';
 import { PostTitleComponent } from './post-title/post-title.component';
 import { PostDateComponent } from './post-date/post-date.component';
+import { PostsListComponent } from './posts-list/posts-list.component';
+import { PostsService } from './posts.service';
+import { ServerService } from './server.service';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,15 @@ import { PostDateComponent } from './post-date/post-date.component';
     PostComponent,
     LikeComponent,
     PostTitleComponent,
-    PostDateComponent
+    PostDateComponent,
+    PostsListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PostsService, ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,3 @@
-<time class="f6 db gray" datetime="">
-  {{ date }}
+<time class="f6 db gray" [attr.datetime]="date">
+  {{ date | date:'longDate' }}
 </time>
