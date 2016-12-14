@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<app-post [post]="post"
+  class="db mw7 center">
+
+  <app-like class="f3 green"
+    app-action
+    [count]="post?.likeCount"
+    (countChange)="postsService.updateLikeCount(post.id, $event)">
+  </app-like>
+
+</app-post>

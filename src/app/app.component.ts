@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostsService } from './posts.service';
 
 @Component({
@@ -6,9 +6,11 @@ import { PostsService } from './posts.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private postsService: PostsService) {
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit() {
     this.postsService.getPosts();
   }
 }

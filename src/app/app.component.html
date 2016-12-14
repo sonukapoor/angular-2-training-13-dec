@@ -1,14 +1,1 @@
-<app-posts-list>
-
-  <app-post [post]="post"
-    *ngFor="let post of postsService.posts;">
-
-    <app-like class="f3 green"
-      app-action
-      [count]="post.likeCount"
-      (countChange)="postsService.updateLikeCount(post.id, $event)">
-    </app-like>
-
-  </app-post>
-
-</app-posts-list>
+<router-outlet></router-outlet>

@@ -12,6 +12,15 @@ import { PostDateComponent } from './post-date/post-date.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostsService } from './posts.service';
 import { ServerService } from './server.service';
+import { SearchbarComponent } from './searchbar/searchbar.component';
+import { HomeContainerComponent } from './home-container/home-container.component';
+import { PostContainerComponent } from './post-container/post-container.component';
+import { RouterModule } from '@angular/router';
+
+import { routes } from './routes';
+import { NavbarComponent } from './navbar/navbar.component';
+
+const routing = RouterModule.forRoot(routes);
 
 @NgModule({
   declarations: [
@@ -21,12 +30,17 @@ import { ServerService } from './server.service';
     LikeComponent,
     PostTitleComponent,
     PostDateComponent,
-    PostsListComponent
+    PostsListComponent,
+    SearchbarComponent,
+    HomeContainerComponent,
+    PostContainerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [PostsService, ServerService],
   bootstrap: [AppComponent]

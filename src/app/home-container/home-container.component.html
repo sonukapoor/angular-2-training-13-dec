@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+
+<app-searchbar  (search)="updateQuery($event)">
+</app-searchbar>
+
+<app-posts-list>
+
+  <app-post [post]="post"
+    *ngFor="let post of postsService.getFilteredPosts(query);">
+
+    <a app-action
+      [routerLink]="['/post', post.id]"
+      class="link dim blue mr3">
+      Read More
+    </a>
+
+    <app-like class="f3 green"
+      app-action
+      [count]="post.likeCount"
+      (countChange)="postsService.updateLikeCount(post.id, $event)">
+    </app-like>
+
+  </app-post>
+
+</app-posts-list>

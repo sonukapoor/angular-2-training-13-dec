@@ -7,8 +7,40 @@ const BASE_URL = 'https://jsonplaceholder.typicode.com';
 @Injectable()
 export class PostsService {
 
-  posts: IPost[] = [];
+  posts: IPost[] = [{
+    id: 0,
+    title: 'Post # 1',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    likeCount: 0,
+    date: new Date(),
+    author: 'Alice',
+  }, {
+    id: 1,
+    title: 'Post # 2',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    likeCount: 0,
+    date: new Date(),
+    author: 'Alice',
+  }, {
+    id: 2,
+    title: 'Post # 3',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    likeCount: 0,
+    date: new Date(),
+    author: 'Alice',
+  }];
   constructor(private serverService: ServerService) { }
+
+  getFilteredPosts(query) {
+    if (!query) { return this.posts; }
+    const lowerCaseQuery = query.toLowerCase();
+
+    return this.posts.filter((post) => {
+      return post.title
+        .toLowerCase()
+        .includes(lowerCaseQuery);
+    });
+  }
 
   getPosts() {
     this.serverService.get(`${ BASE_URL }/posts`)
@@ -37,6 +69,10 @@ export class PostsService {
       .findIndex((post) => post.id === id);
 
     this.posts[index].likeCount = likeCount;
+  }
+
+  getPost(id: number) {
+    return this.posts.find(post => post.id === id);
   }
 
 }
